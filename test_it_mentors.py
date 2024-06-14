@@ -21,7 +21,7 @@ def main(expression):
         else:
             raise ValueError("throws Exception: Некорректный оператор. Допустимые операторы: +, -, *, /")
 
-        return result
+        return str(result)
 
     except ValueError as ve:
         print(f"Ошибка: {ve}")
