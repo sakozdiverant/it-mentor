@@ -35,11 +35,11 @@ print("------------------------------")
 letters.pop()
 letters.reverse()
 
-print("Модифицированный список с буквами:", letters)
+print(f"Модифицированный список с буквами: {letters}")
 print("------------------------------")
 
 # Преобразуйте список [«a», «s», «1», «a», «32», «23»] в set и выведите на экран. Что изменилось?
 original_list = ["a", "s", "1", "a", "32", "23"]
 unique_set = set(original_list)
 
-print("Множество:", unique_set)
+print(f"Множество: {unique_set}")
