@@ -14,17 +14,17 @@ logging.basicConfig(
 
 def solve_quadratic(a, b, c):
     try:
-        D = b ** 2 - 4 * a * c
+        d = b ** 2 - 4 * a * c
 
-        if D < 0:
+        if d < 0:
             raise ValueError(f"Дискриминант отрицателен, уравнение не имеет вещественных корней. "
-                             f"\n Дискриминант D = {D}")
+                             f"\n Дискриминант D = {d}")
 
-        x1 = (-b + math.sqrt(D)) / (2 * a)
-        x2 = (-b - math.sqrt(D)) / (2 * a)
+        x1 = (-b + math.sqrt(d)) / (2 * a)
+        x2 = (-b - math.sqrt(d)) / (2 * a)
 
-        logging.info(f'Корни уравнения: x1={x1}, x2={x2}, Дискриминант D = {D}')
-        return x1, x2, D
+        logging.info(f'Корни уравнения: x1={x1}, x2={x2}, Дискриминант D = {d}')
+        return x1, x2, d
 
     except ValueError as e:
         logging.error(e)
