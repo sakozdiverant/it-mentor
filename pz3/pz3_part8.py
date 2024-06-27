@@ -1,4 +1,4 @@
-import math
+# Найти все простые числа от 2 до 50.
 def main():
     primes = []
     for num in range(2, 51):
