@@ -4,9 +4,7 @@
 import math
 
 def main():
-    for i in range(1, 6):
-        factorial = math.factorial(i)
-        print(f"Факториал {i} = {factorial}")
+    [print(f"Факториал {i} = {math.factorial(i)}") for i in range(1, 6)]
 
 if __name__ == "__main__":
     main()
