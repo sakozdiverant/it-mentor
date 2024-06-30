@@ -15,15 +15,15 @@ def main():
         if second_number < days_in_month[first_number]:
             second_number += 1
         elif second_number > days_in_month[first_number]:
-            print(f"Ошибка: В {second_number} месяце количество дней {days_in_month[first_number]}")
+            print(f"Ошибка: В {first_number} месяце количество дней {days_in_month[first_number]}")
         else:
             second_number = 1
             first_number += 1
             if first_number > 12:
                 first_number = 1
-        print(f"Следующая дата: D (день){second_number} M (месяц){first_number}")
+        print(f"Следующая дата: День {second_number} месяц {first_number}")
     else:
-        print("ошибка")
+        print("Ошибка")
 
 if __name__ == "__main__":
     main()
