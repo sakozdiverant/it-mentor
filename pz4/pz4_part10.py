@@ -6,27 +6,6 @@
 # операция( *, /, + или -) . На выходе должны получить число, после выполнения операции.
 
 def number_to_words(num):
-    hundreds = {
-        1: 'сто', 2: 'двести', 3: 'триста', 4: 'четыреста',
-        5: 'пятьсот', 6: 'шестьсот', 7: 'семьсот', 8: 'восемьсот', 9: 'девятьсот'
-    }
-
-    tens = {
-        2: 'двадцать', 3: 'тридцать', 4: 'сорок', 5: 'пятьдесят',
-        6: 'шестьдесят', 7: 'семьдесят', 8: 'восемьдесят', 9: 'девяносто'
-    }
-
-    teens = {
-        10: 'десять', 11: 'одиннадцать', 12: 'двенадцать', 13: 'тринадцать',
-        14: 'четырнадцать', 15: 'пятнадцать', 16: 'шестнадцать',
-        17: 'семнадцать', 18: 'восемнадцать', 19: 'девятнадцать'
-    }
-
-    units = {
-        1: 'один', 2: 'два', 3: 'три', 4: 'четыре', 5: 'пять',
-        6: 'шесть', 7: 'семь', 8: 'восемь', 9: 'девять'
-    }
-
     if not (100 <= num <= 999):
         return "Число должно быть в диапазоне от 100 до 999"
 
@@ -36,16 +15,86 @@ def number_to_words(num):
 
     words = []
 
-    if h in hundreds:
-        words.append(hundreds[h])
+    match h:
+        case 1:
+            words.append('сто')
+        case 2:
+            words.append('двести')
+        case 3:
+            words.append('триста')
+        case 4:
+            words.append('четыреста')
+        case 5:
+            words.append('пятьсот')
+        case 6:
+            words.append('шестьсот')
+        case 7:
+            words.append('семьсот')
+        case 8:
+            words.append('восемьсот')
+        case 9:
+            words.append('девятьсот')
 
     if t == 1:
-        words.append(teens[t * 10 + u])
+        match t * 10 + u:
+            case 10:
+                words.append('десять')
+            case 11:
+                words.append('одиннадцать')
+            case 12:
+                words.append('двенадцать')
+            case 13:
+                words.append('тринадцать')
+            case 14:
+                words.append('четырнадцать')
+            case 15:
+                words.append('пятнадцать')
+            case 16:
+                words.append('шестнадцать')
+            case 17:
+                words.append('семнадцать')
+            case 18:
+                words.append('восемнадцать')
+            case 19:
+                words.append('девятнадцать')
     else:
-        if t in tens:
-            words.append(tens[t])
-        if u in units:
-            words.append(units[u])
+        match t:
+            case 2:
+                words.append('двадцать')
+            case 3:
+                words.append('тридцать')
+            case 4:
+                words.append('сорок')
+            case 5:
+                words.append('пятьдесят')
+            case 6:
+                words.append('шестьдесят')
+            case 7:
+                words.append('семьдесят')
+            case 8:
+                words.append('восемьдесят')
+            case 9:
+                words.append('девяносто')
+
+        match u:
+            case 1:
+                words.append('один')
+            case 2:
+                words.append('два')
+            case 3:
+                words.append('три')
+            case 4:
+                words.append('четыре')
+            case 5:
+                words.append('пять')
+            case 6:
+                words.append('шесть')
+            case 7:
+                words.append('семь')
+            case 8:
+                words.append('восемь')
+            case 9:
+                words.append('девять')
 
     return " ".join(words)
 
@@ -55,24 +104,24 @@ def calculator():
         num2 = float(input("Введите второе число: "))
         operation = input("Введите операцию (*, /, +, -): ")
 
-        if operation == '+':
-            result = num1 + num2
-        elif operation == '-':
-            result = num1 - num2
-        elif operation == '*':
-            result = num1 * num2
-        elif operation == '/':
-            if num2 != 0:
-                result = num1 / num2
-            else:
-                return "Ошибка: деление на ноль"
-        else:
-            return "Ошибка: недопустимая операция"
+        match operation:
+            case '+':
+                result = num1 + num2
+            case '-':
+                result = num1 - num2
+            case '*':
+                result = num1 * num2
+            case '/':
+                if num2 != 0:
+                    result = num1 / num2
+                else:
+                    return "Ошибка: деление на ноль"
+            case _:
+                return "Ошибка: недопустимая операция"
 
         return f"Результат: {result}"
     except ValueError:
         return "Ошибка: введите допустимые числа"
-
 
 def main():
     while True:
@@ -97,6 +146,7 @@ def main():
             break
         else:
             print("Неверный выбор, попробуйте еще раз.")
+
 
 if __name__ == "__main__":
     main()
