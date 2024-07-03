@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5067663d-3418-4842-9021-4f9d62fb0727" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pz5/password.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz5/pz5_part2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz5/pz5_part3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz5/pz5_part4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz5/pz5_part5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz5/pz5_part6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pz5/lorum.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pz5/lorum.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pz5/pz5_part1.py" beforeDir="false" afterPath="$PROJECT_DIR$/pz5/pz5_part1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,15 +42,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.praktika1_part4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.praktika1_part5.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.praktika1_part4.executor": "Run",
+    "Python.praktika1_part5.executor": "Run",
+    "Python.pz5_part1.executor": "Run",
+    "Python.pz5_part2.executor": "Run",
+    "Python.pz5_part3.executor": "Run",
+    "Python.pz5_part4.executor": "Run",
+    "Python.pz5_part5.executor": "Run",
+    "Python.pz5_part6.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/ucheba_python/it-mentor/pz5"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ucheba_python\it-mentor\pz5" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -60,5 +80,8 @@
       <updated>1718981072381</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
 </project>
