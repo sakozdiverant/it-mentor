@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5067663d-3418-4842-9021-4f9d62fb0727" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pz6/pz6_part1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pz6/pz6_part2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pz6/pz6_part3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pz6/pz6_part4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz6/pz6_part5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pz6/pz6_part6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +50,8 @@
     "Python.pz6_part2.executor": "Run",
     "Python.pz6_part3.executor": "Run",
     "Python.pz6_part4.executor": "Run",
+    "Python.pz6_part5.executor": "Run",
+    "Python.pz6_part6.executor": "Run",
     "Python.pz_part1.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
