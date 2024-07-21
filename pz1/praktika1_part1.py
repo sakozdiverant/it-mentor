@@ -6,9 +6,9 @@ def perimeter_squer(a):
 print(f"Периметр квадрата: {perimeter_squer(5)}")
 
 # Дана сторона квадрата a. Найти его площадь{{ S = a2}}
-def area(a):
+def ploshed_area(a):
     return a * a
-print(f"Площадь квадрата: {area(5)}")
+print(f"Площадь квадрата: {ploshed_area(4)}")
 
 # Даны стороны прямоугольника a и b. Найти его площадь S = a·b и периметр P = 2·(a + b)
 def area_perimeter_rectangle(a, b):
@@ -55,9 +55,10 @@ def circumference_area_circle(R):
     area = pi * R * R
     return circumference, area
 
-circumference, area = circumference_area_circle(5)
-print(f"Длина окружности: {circumference}")
-print(f"Площадь круга: {area}")
+if __name__ == "__main__":
+    circumference, area = circumference_area_circle(5)
+    print(f"Длина окружности: {circumference}")
+    print(f"Площадь круга: {area}")
 
 # Даны два числа a и b. Найти их среднее арифметическое: (a + b)/2
 def arithmetic_mean(a, b):
