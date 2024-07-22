@@ -96,3 +96,68 @@ def test_first_digit_of_three_digit_number():
 
 def test_last_and_middle_digits():
     assert last_and_middle_digits(587) == (7, 8)
+
+from praktika1_part3 import (
+    is_positive,
+    is_odd,
+    is_even,
+    check_inequalities_1,
+    check_inequalities_2,
+    check_double_inequality,
+    is_between,
+    both_odd,
+    exactly
+)
+
+def test_is_positive():
+    assert is_positive(5) == True
+    assert is_positive(100) == True
+    assert is_positive(0.1) == True
+    assert is_positive(0) == False
+    assert is_positive(-1) == False
+    assert is_positive(-100) == False
+
+def test_is_odd():
+    assert is_odd(5) == True
+    assert is_odd(100) == False
+    assert is_odd(0.1) == True
+    assert is_odd(0) == False
+    assert is_odd(-1) == True
+    assert is_odd(-100) == False
+
+
+def test_is_even():
+    assert is_even(5) == False
+    assert is_even(100) == True
+    assert is_even(0.1) == False
+    assert is_even(0) == True
+    assert is_even(-1) == False
+    assert is_even(-100) == True
+
+
+def test_check_inequalities_1():
+    assert check_inequalities_1(5,1) == True
+    assert check_inequalities_1(100,1) == True
+    assert check_inequalities_1(0.1,1) == False
+    assert check_inequalities_1(0,1) == False
+    assert check_inequalities_1(-1,1) == False
+    assert check_inequalities_1(-100,1) == False
+
+
+def test_check_inequalities_2():
+    assert check_inequalities_2(587) == (7, 8)
+
+
+def test_check_double_inequality():
+    assert check_double_inequality(587) == (7, 8)
+
+
+def test_is_between():
+    assert is_between(587) == (7, 8)
+
+
+def test_both_odd():
+    assert both_odd(587) == (7, 8)
+
+def test_exactly():
+    assert exactly(587) == (7, 8)
