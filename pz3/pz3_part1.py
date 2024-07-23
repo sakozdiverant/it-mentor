@@ -12,7 +12,6 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-
 def main():
     total_sum = 0
     count = 0
