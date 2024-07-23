@@ -26,4 +26,5 @@ def read_file_in_different_modes(filename):
         print(content)
         print()
 
-read_file_in_different_modes('lorum.txt')
+if __name__ == '__main__':
+    read_file_in_different_modes('lorum.txt')

@@ -32,6 +32,6 @@ def write_file_in_different_modes(filename):
         print("Содержимое файла после записи в режиме 'wb+':")
         print(file.read().decode('utf-8'))
 
-
-write_file_in_different_modes('write_lorum.txt')
+if __name__ == '__main__':
+    write_file_in_different_modes('write_lorum.txt')
 

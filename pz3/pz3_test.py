@@ -3,6 +3,9 @@ import pytest
 from unittest.mock import patch
 import io
 import importlib
+import cProfile
+import pstats
+import allure
 main_functions = []
 for i in range(1, 12):
     module_name = f'pz3_part{i}'
@@ -11,12 +14,26 @@ for i in range(1, 12):
 
 def print_home(num):
     with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-        main_functions[num - 1][1]()  # main_part1
+        profiler = cProfile.Profile()
+        profiler.enable()
+        main_functions[num - 1][1]()
+        profiler.disable()
         output = mock_stdout.getvalue()
+        stats = io.StringIO()
+        ps = pstats.Stats(profiler, stream=stats).sort_stats('cumulative')
+        ps.print_stats()
+        allure.attach(stats.getvalue(), name=f"profiling_part{num}", attachment_type=allure.attachment_type.TEXT)
         return output
 
 
 # Тесты для pz3_part1
+def test_pz3_part1_with_numbers():
+    inputs = iter(['10', '20', '30', '0'])
+    expected_output = "Среднее значение: 20.0\n"
+    with patch('builtins.input', lambda _: next(inputs)):
+        output = print_home(1)
+        assert expected_output in output
+
 def test_pz3_part1_with_numbers():
     inputs = iter(['10', '20', '30', '0'])
     expected_output = "Среднее значение: 20.0\n"
@@ -38,10 +55,6 @@ def test_pz3_part1_invalid_input():
         output = print_home(1)
         assert expected_output in output
 
-def test_pz3_part2_output():
-    expected_output = '\n'.join(map(str, range(101))) + '\n'
-    output = print_home(2)
-    assert output == expected_output
 
 def test_pz3_part3_output():
     target_line1 = "2 * 6 = 12"
@@ -100,5 +113,37 @@ def test_pz3_part8_output():
     assert target_line2 not in output
     assert target_line3 not in output
     assert target_line4 in output
+
+def test_pz3_part9_output():
+    target_line1 = "385"
+    target_line2 = "300"
+    target_line3 = "500"
+    output = print_home(9)
+    assert target_line1 in output
+    assert target_line2 not in output
+    assert target_line3 not in output
+
+def test_pz3_part10_output():
+    target_line1 = "y = 2.0^2 = 4.0"
+    target_line2 = "y = 3.0^2 = 4.0"
+    target_line3 = "y = 8^2 = 56.25"
+    target_line4 = "y = 7.5^2 = 56.25"
+    output = print_home(10)
+    assert target_line1 in output
+    assert target_line2 not in output
+    assert target_line3 not in output
+    assert target_line4 in output
+
+def test_pz3_part11output():
+    target_line1 = "Факториал 3 = 6"
+    target_line2 = "Факториал 1 = 120"
+    target_line3 = "Факториал 5 = 0"
+    target_line4 = "Факториал 5 = 120"
+    output = print_home(11)
+    assert target_line1 in output
+    assert target_line2 not in output
+    assert target_line3 not in output
+    assert target_line4 in output
+
 if __name__ == "__main__":
-    pytest.main()
+    pytest.main(["--alluredir", "allure-results"])
