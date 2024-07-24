@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# В классе {{Moped}}напишите статическую функцию, которая на вход будет принимать расстояние и
+# В классе Moped напишите статическую функцию, которая на вход будет принимать расстояние и
 # максимальную скорость, а на выходе получать время, за которое проедет мопед это расстояние.
 
 class MeansOfTransport:
@@ -49,9 +49,13 @@ class Moped(MeansOfTransport):
     def calculate_travel_time(distance, max_speed):
         return distance / max_speed
 
-travel_time = Moped.calculate_travel_time(100, 613)
-moped = Moped("Dodge Tomahawk", "Серебристый", 2)
-moped.show_color()
-print(moped.show_brand())
-moped.show_wheels()
-print(f"Время, необходимое для проезда 100 км при максимальной скорости 613 км/ч: {travel_time * 60} минут")
+def main():
+    travel_time = Moped.calculate_travel_time(100, 613)
+    moped = Moped("Dodge Tomahawk", "Серебристый", 2)
+    moped.show_color()
+    print(moped.show_brand())
+    moped.show_wheels()
+    print(f"Время, необходимое для проезда 100 км при максимальной скорости 613 км/ч: {travel_time * 60} минут")
+
+if __name__ == '__main__':
+    main()

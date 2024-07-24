@@ -13,6 +13,9 @@ class Cat(Animals):
     def voice(self):
         return "Meow"
 
+def main():
+    cat = Cat()
+    print(cat.voice())
 
-cat = Cat()
-print(cat.voice())
+if __name__ == '__main__':
+    main()

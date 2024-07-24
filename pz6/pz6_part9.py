@@ -20,11 +20,16 @@ class People:
     def __iter__(self):
         return iter(self.people)
 
-group = People(["Alice", "Grum"])
 
-group.add_person("Ivan")
-group.add_person("Diana")
-group.add_person(['Mari', 'Eva'])
+def main():
+    group = People(["Alice", "Grum"])
 
-for person in group:
-    print(person)
+    group.add_person("Ivan")
+    group.add_person("Diana")
+    group.add_person(['Mari', 'Eva'])
+
+    for person in group:
+        print(person)
+
+if __name__ == '__main__':
+    main()

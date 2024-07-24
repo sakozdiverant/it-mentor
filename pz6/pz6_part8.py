@@ -26,16 +26,19 @@ class Dog:
     def info(self):
         return f"Name: {self.name}, Breed: {self.breed}, Age: {self.age}"
 
-#dog3 = Dog("Tuzik", "Haski", 2)
-dog1 = Dog("Sharik", "Golden Retriever", 5)
-print(dog1.info())
-print(dog1.voice())
-print(dog1.fetch("ball"))
+def main():
+    dog1 = Dog("Sharik", "Golden Retriever", 5)
+    print(dog1.info())
+    print(dog1.voice())
+    print(dog1.fetch("ball"))
 
-dog2 = Dog("Max", "Labrador", 3)
-print(dog2.info())
+    dog2 = Dog("Max", "Labrador", 3)
+    print(dog2.info())
 
-print(dog1 is dog2)
+    print(dog1 is dog2)
 
-dog2.age = 6
-print(dog2.info())
+    dog2.age = 6
+    print(dog2.info())
+
+if __name__ == '__main__':
+    main()

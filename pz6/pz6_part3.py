@@ -61,21 +61,26 @@ class Moped(MeansOfTransport):
     def calculate_travel_time(distance, max_speed):
         return distance / max_speed
 
-my_car = Car("V8", "Automatic")
-print(my_car.engine)
-print(my_car._transmission)
 
-try:
-    print(my_car.__mileage)
-except AttributeError as e:
-    print(e)
+def main():
+    my_car = Car("V8", "Automatic")
+    print(my_car.engine)
+    print(my_car._transmission)
 
-print(my_car.get_mileage())
+    try:
+        print(my_car.__mileage)
+    except AttributeError as e:
+        print(e)
 
-my_car.set_mileage(100)
-print(my_car.get_mileage())
+    print(my_car.get_mileage())
 
-my_car._transmission = "6 speed gearbox"
-print(my_car._transmission)
+    my_car.set_mileage(100)
+    print(my_car.get_mileage())
 
-Car.print_car_drive()
+    my_car._transmission = "6 speed gearbox"
+    print(my_car._transmission)
+
+    Car.print_car_drive()
+
+if __name__ == '__main__':
+    main()

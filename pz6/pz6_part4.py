@@ -120,18 +120,23 @@ class Moped(MeansOfTransport):
     def calculate_travel_time(distance, max_speed):
         return distance / max_speed
 
-car1 = Car("V8", "Автомат", "LADA", "Vesta", 2022)
-car2 = Car("V6", "Механика", "УАЗ", "Патриот", 2023)
 
-print(car1)
-print(repr(car1))
+def main():
+    car1 = Car("V8", "Автомат", "LADA", "Vesta", 2022)
+    car2 = Car("V6", "Механика", "УАЗ", "Патриот", 2023)
 
-print(car1 == car2)
-print(car1 < car2)   # Вывод: True (так как 2022 > 2023)
+    print(car1)
+    print(repr(car1))
 
-car1 + 15000  # Добавляет пробег
-print(len(car1))  # Вывод: 15000
+    print(car1 == car2)
+    print(car1 < car2)   # Вывод: True (так как 2022 > 2023)
 
-with car1 as c:
-    print("Inside the context")
+    car1 + 15000  # Добавляет пробег
+    print(len(car1))  # Вывод: 15000
+
+    with car1 as c:
+        print("Inside the context")
+
+if __name__ == '__main__':
+    main()
 

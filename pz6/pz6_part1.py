@@ -49,22 +49,26 @@ class Moped(MeansOfTransport):
     def show_wheels(self):
         print(f"Количество колес у мопеда: {self.wheels}")
 
-car = MeansOfTransport("ВАЗ", "Красный")
-car.show_color()
-print(car.show_brand())
+def main():
+    car = MeansOfTransport("ВАЗ", "Красный")
+    car.show_color()
+    print(car.show_brand())
 
-car.color = "Синий"
-car.brand = "ГАЗ"
+    car.color = "Синий"
+    car.brand = "ГАЗ"
 
-car.show_color()
-print(car.show_brand())
+    car.show_color()
+    print(car.show_brand())
 
-car2 = Car("ВАЗ", "Красный", 4)
-car2.show_color()
-print(car2.show_brand())
-car2.show_wheels()
+    car2 = Car("ВАЗ", "Красный", 4)
+    car2.show_color()
+    print(car2.show_brand())
+    car2.show_wheels()
 
-moped = Moped("HONDA NC750", "Черный", 2)
-moped.show_color()
-print(moped.show_brand())
-moped.show_wheels()
+    moped = Moped("HONDA NC750", "Черный", 2)
+    moped.show_color()
+    print(moped.show_brand())
+    moped.show_wheels()
+
+if __name__ == '__main__':
+    main()

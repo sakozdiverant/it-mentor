@@ -16,11 +16,16 @@ class LoggedAttributes:
             print(f"Установка атрибута '{name}' со значением {value}")
         super().__setattr__(name, value)
 
-obj = LoggedAttributes("value1", "value2", "value3")
 
-obj.attr1 = "Хочу есть"
-obj.attr2 = "я голодный"
-obj.attr3 = "С кухни вкусно пахнет"
 
-obj.new_attr = "new_value"
-obj.new_attr = "Наконец пора перходить к Теории"
+def main():
+    obj = LoggedAttributes("value1", "value2", "value3")
+    obj.attr1 = "Хочу есть"
+    obj.attr2 = "я голодный"
+    obj.attr3 = "С кухни вкусно пахнет"
+
+    obj.new_attr = "new_value"
+    obj.new_attr = "Наконец пора перходить к Теории"
+
+if __name__ == '__main__':
+    main()

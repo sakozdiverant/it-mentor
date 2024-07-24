@@ -75,9 +75,12 @@ class c1(b1, b2):
         print('Start c1')
         super().__init__(text)
         print('End c1')
+def main():
+    test1 = c1('row row row your boat')
+    print('--------')
+    print(test1.tokens)
+    print(test1.vocab)
+    print(test1.word_count)
 
-test1 = c1('row row row your boat')
-print('--------')
-print(test1.tokens)
-print(test1.vocab)
-print(test1.word_count)
+if __name__ == '__main__':
+    main()
