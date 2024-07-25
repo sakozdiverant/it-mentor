@@ -2,7 +2,6 @@ import pytest
 from io import StringIO
 
 
-
 class Test_pz6_part1_MeansOfTransport():
 
     def test_means_of_transport(self):
@@ -131,6 +130,5 @@ class Test_pz6_part10_MeansOfTransport:
         assert "Изменение атрибута 'attr1': value1 -> Хочу есть" in captured1.out
         assert "Изменение атрибута 'attr2': value2 -> я голодный" in captured2.out
         assert "Изменение атрибута 'attr3': value3 -> С кухни вкусно пахнет" in captured3.out
-
 
 

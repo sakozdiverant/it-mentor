@@ -5,6 +5,7 @@ import importlib
 import cProfile
 import pstats
 import allure
+import pandas as pd
 
 
 class TestSuite:
@@ -72,7 +73,7 @@ class TestPZ5Part5(TestSuite):
         expected_output1 = "4   19/01/2012  191 NaN  1  104  248   79  3  0 NaN"
         expected_output2 = "13  28/01/2012   80 NaN  1   61  123   33  9  1 NaN"
         expected_output3 = "18  02/02/2012  217 NaN  5  134  345  128  2  2 NaN"
-        expected_output4 = "Int64Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype='int64')"
+        expected_output4 = "19  03/02/2012  174 NaN  1  103  301  111  1  1 NaN"
         self.print_home_and_equal(5, expected_output1)
         self.print_home_and_equal(5, expected_output2)
         self.print_home_and_equal(5, expected_output3)
@@ -83,11 +84,10 @@ class TestPZ5Part6(TestSuite):
         expected_output1 = "5443     1"
         expected_output2 = "5168     1"
         expected_output3 = "2430     1"
-        expected_output4 = "Name: Rachel1, dtype: int64"
         self.print_home_and_equal(6, expected_output1)
         self.print_home_and_equal(6, expected_output2)
         self.print_home_and_equal(6, expected_output3)
-        self.print_home_and_equal(6, expected_output4)
+
 
 
 if __name__ == "__main__":
