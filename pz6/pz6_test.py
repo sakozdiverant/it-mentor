@@ -1,11 +1,29 @@
-import pytest
-from io import StringIO
+import cProfile
+import pstats
+import io
+from functools import wraps
+
+class Profiling:
+        def profile(self, func):
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                pr = cProfile.Profile()
+                pr.enable()
+                result = func(*args, **kwargs)
+                pr.disable()
+                s = io.StringIO()
+                sortby = 'cumulative'
+                ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+                ps.print_stats()
+                print(s.getvalue())
+                return result
+            return wrapper
 
 
 class Test_pz6_part1_MeansOfTransport():
-
+    @Profiling().profile
     def test_means_of_transport(self):
-        from pz6_part1 import MeansOfTransport, Car, Moped
+        from pz6_part1 import MeansOfTransport
         vehicle = MeansOfTransport("Toyota", "Red")
         assert vehicle.brand == "Toyota"
         assert vehicle.color == "Red"
@@ -15,6 +33,7 @@ class Test_pz6_part1_MeansOfTransport():
         assert vehicle.brand == "Honda"
         assert vehicle.color == "Blue"
 
+    @Profiling().profile
     def test_car(self):
         from pz6_part1 import MeansOfTransport, Car, Moped
         car = Car("Lada", "White", 4)
@@ -27,6 +46,7 @@ class Test_pz6_part1_MeansOfTransport():
         assert car.brand == "Ford"
         assert car.color == "Black"
 
+    @Profiling().profile
     def test_moped(self):
         from pz6_part1 import MeansOfTransport, Car, Moped
         moped = Moped("Yamaha", "Yellow", 2)
@@ -41,6 +61,7 @@ class Test_pz6_part1_MeansOfTransport():
 
 
 class Test_pz6_part2_MeansOfTransport():
+    @Profiling().profile
     def test_speed_and_wheels(self):
         from pz6_part2 import MeansOfTransport, Car, Moped
         travel_time = Moped.calculate_travel_time(10, 100)
@@ -50,6 +71,7 @@ class Test_pz6_part2_MeansOfTransport():
 
 
 class Test_pz6_part3_MeansOfTransport():
+    @Profiling().profile
     def test_secret(self):
         from pz6_part3 import MeansOfTransport, Car, Moped
         my_car = Car("V8", "Automatic")
@@ -63,20 +85,20 @@ class Test_pz6_part3_MeansOfTransport():
 
 
 class Test_pz6_part4_MeansOfTransport():
+    @Profiling().profile
     def test_get(self):
         from pz6_part4 import MeansOfTransport, Car, Moped
         car1 = Car("V8", "Автомат", "LADA", "Vesta", 2022)
         car2 = Car("V6", "Механика", "УАЗ", "Патриот", 2023)
-
         assert car1 != car2
         assert car1 < car2
-
         car1 + 15000
         assert len(car1) == 15000
 
 
 class Test_pz6_part5_MeansOfTransport():
-    def test_calculator(self):
+   @Profiling().profile
+   def test_calculator(self):
         from pz6_part5 import Calculator, StringCalculator
         calc = Calculator()
         assert calc.add(3, 5) == 8
@@ -86,12 +108,14 @@ class Test_pz6_part5_MeansOfTransport():
 
 
 class Test_pz6_part6_MeansOfTransport():
+    @Profiling().profile
     def test_inheritance(self):
         from pz6_part6 import Cat
         cat = Cat()
         assert cat.voice() == 'Meow'
 
 class Test_pz6_part7_MeansOfTransport():
+    @Profiling().profile
     def test_cristall(self):
         from pz6_part7 import c1
         cristall = c1('row row row your boat')
@@ -100,6 +124,7 @@ class Test_pz6_part7_MeansOfTransport():
         assert cristall.word_count == 5
 
 class Test_pz6_part8_MeansOfTransport():
+    @Profiling().profile
     def test_singelton(self):
         from pz6_part8 import Dog
         dog1 = Dog("Sharik", "Golden Retriever", 5)
@@ -108,6 +133,7 @@ class Test_pz6_part8_MeansOfTransport():
         assert dog1 == dog2
 
 class Test_pz6_part9_MeansOfTransport():
+    @Profiling().profile
     def test_group_list(self):
         from pz6_part9 import People
         people = People(["Alice", "Grum"])
@@ -118,6 +144,7 @@ class Test_pz6_part9_MeansOfTransport():
 
 
 class Test_pz6_part10_MeansOfTransport:
+    @Profiling().profile
     def test_group_list(self, capsys):
         from pz6_part10 import LoggedAttributes
         obj = LoggedAttributes("value1", "value2", "value3")
