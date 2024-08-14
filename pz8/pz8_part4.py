@@ -1,23 +1,23 @@
 import asyncio
 import time
-import functools
+
 
 def timer(func):
-    @functools.wraps(func)
-    def wrapper_timer(*args, **kwargs):
+    async def wrapper_timer(*args, **kwargs):
         start_time = time.time()
-        value = func(*args, **kwargs)
+        value = await func(*args, **kwargs)
         end_time = time.time()
         run_time = end_time - start_time
-        print(f"Finished {func.__name__!r} in {run_time:.4f} secs")
-        return value
+        print(f"Функция {func.__name__!r} выполнена за {run_time:.4f} секунды")
     return wrapper_timer
 
+@timer
 async def task1():
     print("1 task run")
     await asyncio.sleep(2)
     print("1 task stop")
 
+@timer
 async def task2():
     print("2 task run")
     await asyncio.sleep(4)
