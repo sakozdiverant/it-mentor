@@ -1,4 +1,4 @@
-CREATE TABLE public."Клиент" (
+CREATE TABLE public."Клиенты" (
     "Код" INTEGER PRIMARY KEY NOT NULL,
     "ФИО" VARCHAR(255) NOT NULL,
     "Адрес" TEXT NOT NULL,
