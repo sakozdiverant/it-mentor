@@ -3,9 +3,10 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from pz10_part2 import Client, Supplier, Delivery, Employee, Product, Order
 from datetime import date
+#bd = "ITM_alchem"
 
-
-engine = create_engine('postgresql+psycopg2://postgres:admin@localhost:5432/ITM_alchem')
+bd = "321"
+engine = create_engine(f'postgresql+psycopg2://postgres:admin@localhost:5432/{bd}')
 Session = sessionmaker(bind=engine)
 session = Session()
 

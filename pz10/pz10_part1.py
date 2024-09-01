@@ -32,8 +32,8 @@ def check_bd(bd_post='ITM_alchem'):
     print(f"База данных {bd_post} успешно Ппроверена!")
 
 if __name__ == "__main__":
-    #make_bd()
-    check_bd()
+    make_bd("321")
+    check_bd("321")
 
 
 

@@ -3,9 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, inspect
 from pz10_part2 import Client, Supplier, Delivery, Employee, Product, Order
 
-# Создаем движок и сессию
-
-bd_post='ITM_alchem'
+bd_post='321'
 DATABASE_URL = f"postgresql+psycopg2://postgres:admin@localhost:5432/{bd_post}"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)

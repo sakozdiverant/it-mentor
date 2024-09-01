@@ -79,4 +79,4 @@ def make_tables(bd_post='ITM_alchem'):
     Base.metadata.create_all(bind=engine)
 
 if __name__ == '__main__':
-    make_tables()
+    make_tables("321")
