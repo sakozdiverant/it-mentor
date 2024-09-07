@@ -1,4 +1,4 @@
-#! bash
+rrf#! bash
 
 cd /d/it-mentor
 git add .
