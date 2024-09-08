@@ -1,0 +1,31 @@
+
+fastapi==0.95.0
+uvicorn==0.21.1
+
+# SQLAlchemy и драйвер для PostgreSQL
+sqlalchemy==2.0.15
+psycopg2-binary==2.9.6
+
+# Pydantic для валидации данных
+pydantic==1.10.2
+
+# Celery для выполнения задач в фоновом режиме
+celery==5.3.0
+
+# RabbitMQ для брокера сообщений (kombu автоматически установится с celery)
+amqp==5.1.1
+
+# Для работы с изображениями и Tesseract OCR
+pillow==9.5.0
+pytesseract==0.3.10
+
+# NumPy для совместимости с Tesseract
+numpy==1.24.0
+
+# Библиотеки для работы с загрузкой файлов и кодированием в base64
+python-multipart==0.0.5
+
+# Опционально, для работы с .env файлами (настройки окружения)
+python-dotenv==1.0.0
+
+alembic
