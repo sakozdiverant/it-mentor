@@ -3,9 +3,11 @@ from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship, sessionmaker, DeclarativeBase
 from sqlalchemy.ext.declarative import declarative_base
 from path_bd import path_bd
+import os
 
 
 DATABASE_URL = path_bd
+#DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:admin@postgres_db:5432/FastAPI_ITM')
 engine = create_engine(DATABASE_URL, echo=True)
 
 class Base(DeclarativeBase):
