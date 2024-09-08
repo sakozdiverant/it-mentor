@@ -4,6 +4,10 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from datetime import date
 from create_tables import SessionLocal, Document, DocumentText
+from celery import Celery
+import pytesseract
+from sqlalchemy.orm import sessionmaker
+from create_tables import engine, DocumentText, Document
 
 app = FastAPI()
 
