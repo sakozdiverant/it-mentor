@@ -6,8 +6,8 @@ from path_bd import path_bd
 import os
 
 
-DATABASE_URL = path_bd
-#DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:admin@postgres_db:5432/FastAPI_ITM')
+#DATABASE_URL = path_bd
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql+psycopg2://postgres:admin@postgres_db:5432/FastAPI_ITM')
 engine = create_engine(DATABASE_URL, echo=True)
 
 class Base(DeclarativeBase):
