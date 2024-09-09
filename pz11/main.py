@@ -175,5 +175,5 @@ def get_document_text(doc_id: int, db: Session = Depends(get_db)):
 #Satrt celery -A celery_worker.celery_app worker --loglevel=info
 #venv\Scripts\activate
 #Start uvicorn main:app --reload
-
+#docker exec -it fastapi_app alembic upgrade head
 

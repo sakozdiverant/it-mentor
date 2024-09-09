@@ -8,7 +8,19 @@ import os
 logger = logging.getLogger(__name__)
 
 # Настройка брокера (RabbitMQ)
-celery_app = Celery("tasks", broker="pyamqp://guest@rabbitmq//")
+celery_app = Celery(
+    'tasks',
+    broker='amqp://guest:guest@rabbitmq:5672//',
+    backend='rpc://'
+)
+celery_app.conf.update(
+    result_expires=3600,
+    task_serializer='json',
+    accept_content=['json'],
+    result_serializer='json',
+    timezone='UTC',
+    enable_utc=True,
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 

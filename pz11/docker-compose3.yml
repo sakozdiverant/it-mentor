@@ -20,6 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: ["/app/docker/app.sh"]
     depends_on:
       - postgres_db
       - rabbitmq
@@ -33,7 +34,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["/app/docker/app.sh"]
+    command: celery -A celery_worker.celery_app worker --loglevel=info
     depends_on:
       - rabbitmq
       - postgres_db
