@@ -5,13 +5,13 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from create_tables import Base
 from alembic import context
-from path_bd import path_bd
+#from path_bd import path_bd
 
 base = Base()
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-#path_bd = "postgresql+psycopg2://postgres:admin@localhost:5432/astAPI_ITM"
+path_bd = "postgresql+psycopg2://postgres:admin@postgres_db:5432/FastAPI_ITM"
 config.set_main_option("sqlalchemy.url", path_bd)
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

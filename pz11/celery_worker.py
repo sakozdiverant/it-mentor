@@ -8,8 +8,7 @@ import os
 logger = logging.getLogger(__name__)
 
 # Настройка брокера (RabbitMQ)
-broker_url = os.getenv('CELERY_BROKER_URL', 'amqp://guest:guest@rabbitmq:5672//')
-celery_app = Celery("tasks", broker=broker_url)
+celery_app = Celery("tasks", broker="pyamqp://guest@rabbitmq//")
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
