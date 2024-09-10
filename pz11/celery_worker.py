@@ -26,24 +26,41 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Путь к исполняемому файлу Tesseract (если требуется)
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 @celery_app.task
 def analyse_document(doc_id: int):
     db = SessionLocal()
     document = db.query(Document).filter(Document.id == doc_id).first()
+
     if not document:
+        print(f"Document with id {doc_id} not found")
         return f"Document with id {doc_id} not found"
+
+    print(f"Document path: {document.path}")
 
     # Выполняем распознавание текста с помощью Tesseract
     try:
         extracted_text = pytesseract.image_to_string(document.path)
+        print(f"Extracted text: {extracted_text}")
     except Exception as e:
+        print(f"Error in Tesseract OCR: {str(e)}")
+        db.rollback()  # Откатываем транзакцию, если что-то пошло не так
         db.close()
         return f"Error in Tesseract OCR: {str(e)}"
 
-    new_doc_text = DocumentText(id_doc=doc_id, text=extracted_text)
-    db.add(new_doc_text)
-    db.commit()
-    db.close()
+    try:
+        new_doc_text = DocumentText(id_doc=doc_id, text=extracted_text)
+        db.add(new_doc_text)
+        db.commit()
+        print(f"Document {doc_id} analysed successfully and text saved.")
+    except Exception as e:
+        print(f"Error saving text: {str(e)}")
+        db.rollback()  # Откатываем транзакцию, если что-то пошло не так
+    finally:
+        db.close()
 
     return f"Document {doc_id} analysed successfully and text saved."
+
+#apt-get update && apt-get install -y tesseract-ocr
+#apt-get update && apt-get install -y nano
