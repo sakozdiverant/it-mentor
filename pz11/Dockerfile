@@ -11,16 +11,14 @@ RUN pip install -r requirements.txt
 
 # Копируем файлы проекта в контейнер
 COPY main.py .
-#COPY path_bd.py .
 COPY requirements.txt .
 COPY create_tables.py .
 COPY celery_worker.py .
 COPY alembic.ini .
 COPY alembic alembic
 COPY documents documents
-COPY docker docker
 
-RUN chmod a+x docker/*.sh
+#RUN chmod a+x docker/*.sh
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     libtesseract-dev \

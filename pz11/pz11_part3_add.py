@@ -3,7 +3,7 @@ import requests
 from tkinter import filedialog
 
 # Пример чтения файла и его кодирования в base64
-file_path = filedialog.askopenfilename(filetypes=[("IMAGE files", "*.png *.jpg *.jpge")])
+file_path = filedialog.askopenfilename(filetypes=[("IMAGE files", "*.png;*.jpg;*.jpge")])
 
 with open(file_path, "rb") as f:
     file_data = base64.b64encode(f.read()).decode("utf-8")
