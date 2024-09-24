@@ -23,10 +23,17 @@ git push origin main
 #ssh -T git@github.com
 #git remote -v
 #Если вы видите, что URL начинается с https://github.com/, то репозиторий использует HTTPS.
-#git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+#git remote set-url origin git@github.com:sakozdiverant/it-mentor.git
+#https://github.com/sakozdiverant/it-mentor.git
 #Где:
 #
 #    USERNAME — это ваше имя пользователя на GitHub.
 #    REPOSITORY — название вашего репозитория.
 #
 #Например, если ваш репозиторий называется my-repo, команда будет выглядеть так:
+
+#windows
+
+#ssh-agent
+#ssh-add C:\Users\admin\.ssh\git_for_itm
+#ssh-agent
