@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,6 +57,12 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+# DEBUG: Подробные сообщения для отладки.
+# INFO: Информационные сообщения о нормальном выполнении программы.
+# WARNING: Предупреждения о потенциальных проблемах.
+# ERROR: Сообщения об ошибках, которые привели к сбоям в некоторых частях программы.
+# CRITICAL: Сообщения о критических ошибках, которые могут привести к завершению программы.
+
         'app.middleware': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
@@ -64,7 +71,23 @@ LOGGING = {
     },
 }
 
+REST_FRAMEWORK = {
 
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -73,6 +96,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt',
     'app',
 ]
 
