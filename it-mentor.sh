@@ -9,7 +9,7 @@ git push origin main
 #make key
 #ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 #eval "$(ssh-agent -s)"
-#ssh-add ~/.ssh/id_rsa
+#ssh-add ~/.ssh/git_for_itm
 #cat ~/.ssh/id_rsa.pub
 #Шаг 4: Добавление SSH-ключа на GitHub
 #
