@@ -29,6 +29,12 @@ class ProductListView(generics.ListAPIView):
     serializer_class = ProductSerializer
     permission_classes = (AllowAny,)
 
+    def get_queryset(self):
+        sort_by = self.request.query_params.get('sort', 'name')
+        if sort_by not in ['name', '-name', 'price', '-price', 'id', '-id']:
+            sort_by = 'name'
+        return Product.objects.all().order_by(sort_by)
+
 # Поиск продуктов по названию
 class ProductSearchView(generics.ListAPIView):
     serializer_class = ProductSerializer
