@@ -7,13 +7,15 @@ class AddToCartTest(APITestCase):
 
     def setUp(self):
         self.client = APIClient()
-        self.user = User.objects.create_user(username='testuser', password='Testpass123!')
+        self.username = 'manger2'
+        self.password = '123qweAS'
+        self.user = User.objects.create_user(username=self.username, password=self.password)
         self.client.force_authenticate(user=self.user)
 
-        self.product = Product.objects.create(name='Test Product', description='Test Description', price=100)
-        self.url = 'http://127.0.0.1:8000/api/cart/add/'
+
+        self.url = '/api/cart/add/'
         self.data = {
-            'product_id': self.product.id,
+            'product_id': 3,
             'quantity': 2
         }
 
@@ -24,7 +26,7 @@ class AddToCartTest(APITestCase):
         self.assertTrue(CartItem.objects.filter(cart__user=self.user, product=self.product).exists())
 
     def test_invalid_product_id(self):
-        self.data['product_id'] = 9999  # Несуществующий продукт
+        self.data['product_id'] = 999  # Несуществующий продукт
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertIn('Продукт с таким ID не существует', str(response.data))

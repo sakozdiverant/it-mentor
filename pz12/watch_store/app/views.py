@@ -87,6 +87,11 @@ class AddToCartView(APIView):
 # Просмотр корзины
 class CartView(APIView):
     permission_classes = (IsAuthenticated,)
+    def post(self, request):
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        return Response({"message": "Корзина успешно создана"
+        if created else "Корзина уже существует"}, status=status.HTTP_200_OK)
+
 
     def get(self, request):
         try:
