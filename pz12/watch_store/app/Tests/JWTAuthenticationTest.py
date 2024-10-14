@@ -7,7 +7,7 @@ class JWTAuthenticationTest(APITestCase):
     def setUp(self):
         self.client = APIClient()
         self.user = User.objects.create_user(username='testuser', password='123qweAS')
-        self.url = '/api/token/'
+        self.url = 'http://127.0.0.1:8000/api/token/'
         self.data = {
             'username': 'testuser',
             'password': '123qweAS'

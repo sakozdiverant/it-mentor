@@ -11,7 +11,7 @@ class AddToCartTest(APITestCase):
         self.client.force_authenticate(user=self.user)
 
         self.product = Product.objects.create(name='Test Product', description='Test Description', price=100)
-        self.url = '/api/cart/add/'
+        self.url = 'http://127.0.0.1:8000/api/cart/add/'
         self.data = {
             'product_id': self.product.id,
             'quantity': 2
