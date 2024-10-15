@@ -24,3 +24,4 @@ class JWTAuthenticationTest(APITestCase):
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertIn('Не найдено активной учетной записи с указанными данными', str(response.data))
+
