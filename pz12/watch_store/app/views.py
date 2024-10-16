@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from .models import Product, Cart, CartItem
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.shortcuts import get_object_or_404
+from rest_framework.viewsets import ModelViewSet
 from django.db.models import Q
 
 # Регистрация пользователя

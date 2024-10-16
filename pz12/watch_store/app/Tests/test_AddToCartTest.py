@@ -15,6 +15,7 @@ class CartTests(APITestCase):
         # Создаем пользователя
         self.user = User.objects.create_user(username='manger2', password='123qweAS')
         self.product = Product.objects.create(name='Test Product', description='Test description', price=2.00, stock=2)
+        self.cart = Cart.objects.create(user=self.user)
         self.token = str(AccessToken.for_user(self.user))
         self.url = '/api/cart/add/'
         self.data = {
