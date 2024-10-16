@@ -79,7 +79,6 @@ class AddToCartSerializer(serializers.Serializer):
     quantity = serializers.IntegerField(default=1)
 
     def validate_product_id(self, value):
-        # Проверяем, существует ли продукт с указанным ID
         if not Product.objects.filter(id=value).exists():
             raise serializers.ValidationError("Продукт с таким ID не существует.")
         return value

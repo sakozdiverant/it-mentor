@@ -65,13 +65,8 @@ class AddToCartView(APIView):
             product_id = serializer.validated_data['product_id']
             quantity = serializer.validated_data['quantity']
 
-            # Получаем продукт
             product = get_object_or_404(Product, id=product_id)
-
-            # Получаем корзину пользователя или создаем новую
             cart, created = Cart.objects.get_or_create(user=request.user)
-
-            # Проверяем, есть ли этот товар в корзине
             cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
 
             if not created:  # Если товар уже есть в корзине, обновляем количество
@@ -79,7 +74,7 @@ class AddToCartView(APIView):
             else:
                 cart_item.quantity = quantity
 
-            cart_item.save()  # Сохраняем изменения
+            cart_item.save()
 
             return Response({"message": "Product added to cart"}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
