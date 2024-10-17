@@ -1,2 +1,0 @@
-docker-compose exec web python manage.py migrate -запуск После постройки контенера
-docker-compose exec web python manage.py test -Запуск тестирования
